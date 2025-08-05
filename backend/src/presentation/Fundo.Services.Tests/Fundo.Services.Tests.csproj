@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\presentation\Fundo.Applications.WebApi\Fundo.Applications.WebApi.csproj" />
+	  <ProjectReference Include="..\Fundo.Applications.WebApi\Fundo.Applications.WebApi.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\core\domain\Fundo.Applications.Domain\Fundo.Applications.Domain.csproj" />
+    <ProjectReference Include="..\..\Core\Fundo.Applications.Domain\Fundo.Applications.Domain.csproj" />
   </ItemGroup>
 
 </Project>
