@@ -29,7 +29,7 @@ namespace Fundo.Applications.WebApi
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {            
             app.UseCors();
             app.UseRouting();
             //app.UseAuthorization();
