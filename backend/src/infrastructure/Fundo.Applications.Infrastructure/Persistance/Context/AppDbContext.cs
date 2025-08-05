@@ -17,6 +17,5 @@ namespace Fundo.Applications.Infrastructure.Persistance.Context
         }
 
         public DbSet<LoanEntity> Loans { get; set; }
-        public DbSet<LoanStatusEntity> LoanStatus { get; set; }
     }
 }

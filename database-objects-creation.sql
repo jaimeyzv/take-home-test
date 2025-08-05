@@ -12,28 +12,18 @@ GO
 USE TakeHomeTest
 GO
 
-CREATE TABLE [dbo].[LoanStatus]
-(
-	StatusId	INT PRIMARY KEY IDENTITY (1, 1),
-	Name		VARCHAR(100) NULL	
-)
-GO
-
 CREATE TABLE [dbo].[Loans]
 (
 	LoanId		INT PRIMARY KEY IDENTITY (1, 1),
 	Amount			DECIMAL(10, 2) NULL,
 	CurrentBalance	DECIMAL(10, 2) NULL,
 	ApplicantName	VARCHAR(100) NULL,	
-	StatusId		INT NOT NULL
-
-	FOREIGN KEY (StatusId) REFERENCES LoanStatus(StatusId)
+	Status			VARCHAR(20) NULL
 )
 GO
 
 
 /*---------------------------- SELECTS ----------------------------*/
-SELECT * FROM [dbo].[LoanStatus]
 SELECT * FROM [dbo].[Loans]
 
 

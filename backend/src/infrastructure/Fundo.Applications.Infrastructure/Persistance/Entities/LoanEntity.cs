@@ -19,10 +19,7 @@ namespace Fundo.Applications.Infrastructure.Persistance.Entities
         [Column("ApplicantName")]
         public string ApplicantName { get; set; }
 
-        [ForeignKey(nameof(Status))]
-        [Column("StatusId")]
-        public int StatusId { get; set; }
-
-        public LoanStatusEntity Status { get; set; }
+        [Column("Status")]
+        public string Status { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Fundo.Applications.Application.UseCases.CreateLoan;
 using Fundo.Applications.Application.UseCases.GetLoanById;
+using Fundo.Applications.Application.UseCases.PayLoan;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -13,7 +14,8 @@ namespace Fundo.Applications.Application.Services
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(
                 typeof(CreateLoanMapper).Assembly,
-                typeof(GetLoanByIdMapper).Assembly
+                typeof(GetLoanByIdMapper).Assembly,
+                typeof(PayLoanMapper).Assembly
                 );
 
             services.AddMediatR(cfg =>

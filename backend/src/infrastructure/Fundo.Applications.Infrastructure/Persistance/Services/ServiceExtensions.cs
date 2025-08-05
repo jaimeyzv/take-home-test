@@ -25,18 +25,13 @@ namespace Fundo.Applications.Infrastructure.Persistance.Services
 
         public static async Task SeedAsync(AppDbContext context)
         {
-            if (!context.LoanStatus.Any())
+            if (!context.Loans.Any())
             {
-                context.LoanStatus.AddRange(
-                    new LoanStatusEntity { Name = "Active"},
-                    new LoanStatusEntity { Name = "Paid"} 
-                );
-
                 context.Loans.AddRange(
-                    new LoanEntity { Amount = 100, CurrentBalance = 5000, ApplicantName = "Jaime Zamora", StatusId = 1 },
-                    new LoanEntity { Amount = 200, CurrentBalance = 4900, ApplicantName = "Jaime Zamora", StatusId = 2 },
-                    new LoanEntity { Amount = 300, CurrentBalance = 4700, ApplicantName = "Jaime Zamora", StatusId = 1 },
-                    new LoanEntity { Amount = 400, CurrentBalance = 4400, ApplicantName = "Jaime Zamora", StatusId = 2 }
+                    new LoanEntity { Amount = 4000, CurrentBalance = 4000, ApplicantName = "Jaime Zamora", Status = "active" },
+                    new LoanEntity { Amount = 5000, CurrentBalance = 5000, ApplicantName = "Yampiere Vasquez", Status = "active" },
+                    new LoanEntity { Amount = 6000, CurrentBalance = 6000, ApplicantName = "Piero Zamvas", Status = "active" },
+                    new LoanEntity { Amount = 10000, CurrentBalance = 0, ApplicantName = "Cristiano Ronaldo", Status = "paid" }
                 );
 
                 await context.SaveChangesAsync();

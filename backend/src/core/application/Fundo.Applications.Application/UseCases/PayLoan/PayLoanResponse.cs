@@ -1,8 +1,7 @@
-﻿namespace Fundo.Applications.Application.UseCases.GetLoanById
+﻿namespace Fundo.Applications.Application.UseCases.PayLoan
 {
-    public sealed class GetLoanByIdResponse
+    public sealed class PayLoanResponse
     {
-        public int LoanId { get; set; }
         public decimal Amount { get; set; }
         public decimal CurrentBalance { get; set; }
         public string ApplicantName { get; set; }

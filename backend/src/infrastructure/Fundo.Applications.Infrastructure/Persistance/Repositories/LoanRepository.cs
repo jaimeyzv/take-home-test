@@ -26,14 +26,6 @@ namespace Fundo.Applications.Infrastructure.Persistance.Repositories
             _context.Loans.Add(loanEntity);
         }
 
-        public async Task<List<LoanDomain>> GetAllByPaymentId(int paymentId, CancellationToken cancellationToken)
-        {
-            var entities = await this._context.Loans.ToListAsync();
-            var domains = _mapper.Map<List<LoanDomain>>(entities);
-
-            return domains;
-        }
-
         public async Task<LoanDomain?> GetById(int loanId, CancellationToken cancellationToken)
         {
             var entity = await _context
@@ -45,6 +37,16 @@ namespace Fundo.Applications.Infrastructure.Persistance.Repositories
             var loanDomain = _mapper.Map<LoanDomain>(entity);
 
             return loanDomain;
+        }
+
+        public async Task Update(LoanDomain domain, CancellationToken cancellationToken)
+        {
+            var entity = await _context
+                    .Loans
+                    .SingleAsync(x => x.LoanId == domain.LoanId, cancellationToken);
+            _context.Entry(entity).State = EntityState.Detached;
+            var newEntity = _mapper.Map<LoanEntity>(domain);
+            _context.Loans.Update(newEntity);
         }
     }
 }

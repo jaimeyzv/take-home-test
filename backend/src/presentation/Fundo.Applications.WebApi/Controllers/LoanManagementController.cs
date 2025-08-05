@@ -1,4 +1,6 @@
-﻿using Fundo.Applications.Application.UseCases.GetLoanById;
+﻿using Fundo.Applications.Application.UseCases.CreateLoan;
+using Fundo.Applications.Application.UseCases.GetLoanById;
+using Fundo.Applications.Application.UseCases.PayLoan;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,11 +21,14 @@ namespace Fundo.Applications.WebApi.Controllers
         }
 
         [HttpGet("{loanId}")]
-        public async Task<ActionResult<GetLoanByIdResponse>> GetByLoanId(int loanId, CancellationToken cancellationToken)
+        public async Task<ActionResult<GetLoanByIdResponse>> GetByLoanId(
+            [FromRoute] int loanId, 
+            CancellationToken cancellationToken
+        )
         {
             try
             {
-                var response = await _mediator.Send(new GetLoanByIdRequest(loanId), cancellationToken);
+                var response = await _mediator.Send(new GetLoanByIdRequest { LoanId = loanId }, cancellationToken);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -33,13 +38,32 @@ namespace Fundo.Applications.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<GetLoanByIdResponse>> Create(
-            GetLoanByIdRequest request,
+        public async Task<ActionResult<CreateLoanResponse>> Create(
+            [FromBody] CreateLoanRequest request,
             CancellationToken cancellationToken
         )
         {
             try
             {
+                var response = await _mediator.Send(request, cancellationToken);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("{loanId}/pay")]
+        public async Task<ActionResult<PayLoanResponse>> Pay(
+            [FromRoute] int loanId,
+            [FromBody] PayLoanRequest request,
+            CancellationToken cancellationToken
+        )
+        {
+            try
+            {
+                request.LoanId = loanId;
                 var response = await _mediator.Send(request, cancellationToken);
                 return Ok(response);
             }

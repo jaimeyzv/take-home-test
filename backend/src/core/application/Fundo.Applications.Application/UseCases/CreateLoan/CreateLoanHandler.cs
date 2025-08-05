@@ -23,6 +23,7 @@ namespace Fundo.Applications.Application.UseCases.CreateLoan
         public async Task<CreateLoanResponse> Handle(CreateLoanRequest request, CancellationToken cancellationToken)
         {
             var loanDomain = _mapper.Map<LoanDomain>(request);
+            loanDomain.NewLoanCreation();
             await _repository.Create(loanDomain, cancellationToken);
             await _unitOfWork.Commit(cancellationToken);
             return new CreateLoanResponse { LoanId = loanDomain.LoanId };            
