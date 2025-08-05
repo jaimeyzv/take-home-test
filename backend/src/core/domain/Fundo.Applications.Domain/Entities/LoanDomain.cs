@@ -1,6 +1,4 @@
-﻿using Fundo.Applications.Domain.ValueObjects;
-
-namespace Fundo.Applications.Domain.Entities
+﻿namespace Fundo.Applications.Domain.Entities
 {
     public class LoanDomain
     {
@@ -12,6 +10,9 @@ namespace Fundo.Applications.Domain.Entities
 
         public void MakePayment(decimal paymentAmount)
         {
+            if (Status != "Active" && Status != "active")
+                throw new InvalidOperationException("Cannot make payments on a non-active loan");
+
             if (paymentAmount <= 0)
                 throw new ArgumentException("Payment must be greater than 0");
 
@@ -26,6 +27,12 @@ namespace Fundo.Applications.Domain.Entities
 
         public void NewLoanCreation()
         {
+            if (Amount <= 0)
+                throw new ArgumentException("Loan amount must be greater than zero");
+
+            if (string.IsNullOrWhiteSpace(ApplicantName))
+                throw new ArgumentException("Applicant name is required");
+
             this.CurrentBalance = this.Amount;
             this.Status = "Active";
         }

@@ -22,8 +22,14 @@ namespace Fundo.Applications.Infrastructure.Persistance.Repositories
         public async Task Create(LoanDomain domain, CancellationToken cancellationToken)
         {
             var loanEntity = _mapper.Map<LoanEntity>(domain);
-
             _context.Loans.Add(loanEntity);
+
+            // Post-commit, EF will set entity.LoanId
+            // So we store a reference and update domain after commit using this trick:
+            _context.SavingChanges += (sender, args) =>
+            {
+                domain.LoanId = loanEntity.LoanId; // Copy generated ID to domain
+            };
         }
 
         public async Task<LoanDomain?> GetById(int loanId, CancellationToken cancellationToken)

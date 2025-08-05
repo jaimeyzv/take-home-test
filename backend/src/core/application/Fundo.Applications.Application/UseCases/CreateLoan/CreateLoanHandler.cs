@@ -25,8 +25,8 @@ namespace Fundo.Applications.Application.UseCases.CreateLoan
             var loanDomain = _mapper.Map<LoanDomain>(request);
             loanDomain.NewLoanCreation();
             await _repository.Create(loanDomain, cancellationToken);
-            await _unitOfWork.Commit(cancellationToken);
-            return new CreateLoanResponse { LoanId = loanDomain.LoanId };            
+            var newId = await _unitOfWork.Commit(cancellationToken);            
+            return _mapper.Map<CreateLoanResponse>(loanDomain);            
         }
     }
 }

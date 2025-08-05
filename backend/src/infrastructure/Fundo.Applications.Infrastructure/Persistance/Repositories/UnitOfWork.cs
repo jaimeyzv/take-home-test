@@ -12,9 +12,9 @@ namespace Fundo.Applications.Infrastructure.Persistance.Repositories
             this._context = context;
         }
 
-        public async Task Commit(CancellationToken cancellationToken)
+        public async Task<int> Commit(CancellationToken cancellationToken)
         {
-            await _context.SaveChangesAsync(cancellationToken);
+            return await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
