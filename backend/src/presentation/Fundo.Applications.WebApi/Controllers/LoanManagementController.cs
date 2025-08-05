@@ -1,5 +1,6 @@
 ﻿using Fundo.Applications.Application.UseCases.CreateLoan;
 using Fundo.Applications.Application.UseCases.GetLoanById;
+using Fundo.Applications.Application.UseCases.GetLoanList;
 using Fundo.Applications.Application.UseCases.PayLoan;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,20 @@ namespace Fundo.Applications.WebApi.Controllers
             try
             {
                 var response = await _mediator.Send(new GetLoanByIdRequest { LoanId = loanId }, cancellationToken);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpGet()]
+        public async Task<ActionResult<GetLoanListResponse>> GetAll(CancellationToken cancellationToken)
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetLoanListRequest(), cancellationToken);
                 return Ok(response);
             }
             catch (Exception ex)

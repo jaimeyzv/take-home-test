@@ -31,8 +31,13 @@ namespace Fundo.Applications.Infrastructure.Persistance.Repositories
                 domain.LoanId = loanEntity.LoanId; // Copy generated ID to domain
             };
         }
+        public async Task<List<LoanDomain>> GetAll(CancellationToken cancellationToken)
+        {
+            var entityList = await this._context.Loans.ToListAsync();
+            return _mapper.Map<List<LoanDomain>>(entityList);
+        }
 
-        public async Task<LoanDomain?> GetById(int loanId, CancellationToken cancellationToken)
+        public async Task<LoanDomain> GetById(int loanId, CancellationToken cancellationToken)
         {
             var entity = await _context
                     .Loans

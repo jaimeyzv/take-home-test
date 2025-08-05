@@ -4,7 +4,8 @@ namespace Fundo.Applications.Domain.Interfaces
 {
     public interface ILoanRepository
     {
-        public Task<LoanDomain?> GetById(int loanId, CancellationToken cancellationToken);        
+        public Task<List<LoanDomain>> GetAll(CancellationToken cancellationToken);
+        public Task<LoanDomain> GetById(int loanId, CancellationToken cancellationToken);
         Task Create(LoanDomain domain, CancellationToken cancellationToken);
         Task Update(LoanDomain domain, CancellationToken cancellationToken);
     }
