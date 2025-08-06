@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { LoanService } from '../../services/loan.service';
-import { Loan } from '../../models/loan.model';
+import { LoanList } from '../../models/loan-list.model';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-loan-list',
-  imports: [CommonModule, MatTableModule, MatButtonModule],
+  imports: [CommonModule, MatTableModule, MatButtonModule, RouterModule],
   templateUrl: './loan-list.component.html',
   styleUrls: ['./loan-list.component.scss'],
 })
 export class LoanListComponent {
-  loans: Loan[] = [];
+  loans: LoanList[] = [];
   displayedColumns: string[] = [
     'loanAmount',
     'currentBalance',
@@ -20,7 +21,15 @@ export class LoanListComponent {
     'status',
   ];
 
-  constructor(private loanService: LoanService) {}
+  constructor(
+    private loanService: LoanService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  goToCreate() {
+    this.router.navigate(['/loans/create']);
+  }
 
   ngOnInit(): void {
     this.loanService.getLoans().subscribe({

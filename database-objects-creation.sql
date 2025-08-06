@@ -25,5 +25,5 @@ GO
 
 /*---------------------------- SELECTS ----------------------------*/
 SELECT * FROM [dbo].[Loans]
-
+delete from [dbo].[Loans] where LoanId in (5, 6)
 
