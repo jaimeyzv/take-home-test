@@ -28,10 +28,10 @@ namespace Fundo.Applications.Infrastructure.Persistance.Services
             if (!context.Loans.Any())
             {
                 context.Loans.AddRange(
-                    new LoanEntity { Amount = 4000, CurrentBalance = 4000, ApplicantName = "Jaime Zamora", Status = "active" },
-                    new LoanEntity { Amount = 5000, CurrentBalance = 5000, ApplicantName = "Yampiere Vasquez", Status = "active" },
-                    new LoanEntity { Amount = 6000, CurrentBalance = 6000, ApplicantName = "Piero Zamvas", Status = "active" },
-                    new LoanEntity { Amount = 10000, CurrentBalance = 0, ApplicantName = "Cristiano Ronaldo", Status = "paid" }
+                    new LoanEntity { Amount = 4000, CurrentBalance = 4000, ApplicantName = "Jaime Zamora", Status = "Active" },
+                    new LoanEntity { Amount = 5000, CurrentBalance = 5000, ApplicantName = "Yampiere Vasquez", Status = "Active" },
+                    new LoanEntity { Amount = 6000, CurrentBalance = 6000, ApplicantName = "Piero Zamvas", Status = "Active" },
+                    new LoanEntity { Amount = 10000, CurrentBalance = 0, ApplicantName = "Cristiano Ronaldo", Status = "Paid" }
                 );
 
                 await context.SaveChangesAsync();
