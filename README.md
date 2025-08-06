@@ -52,6 +52,7 @@ If you're using different ports, update the environment configuration accordingl
 
 ## 📁 Project Structure
 
+```bash
 take-home-test/
 ├── .github/
 │   └── workflows/
@@ -103,7 +104,7 @@ take-home-test/
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
-
+```
 
 ## 🛠️ Implementation Approach
 
