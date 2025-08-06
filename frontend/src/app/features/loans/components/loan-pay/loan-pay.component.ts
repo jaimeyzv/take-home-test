@@ -45,6 +45,10 @@ export class LoanPayComponent implements OnInit {
     });
   }
 
+  goBack() {
+    this.router.navigate(['/loans']);
+  }
+
   onSubmit(): void {
     if (this.loanForm.valid) {
       this.loanService

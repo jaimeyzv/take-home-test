@@ -35,6 +35,10 @@ export class LoanCreateComponent implements OnInit {
     private router: Router
   ) {}
 
+  goBack() {
+    this.router.navigate(['/loans']);
+  }
+
   ngOnInit(): void {
     this.loanForm = this.fb.group({
       amount: [null, Validators.required],

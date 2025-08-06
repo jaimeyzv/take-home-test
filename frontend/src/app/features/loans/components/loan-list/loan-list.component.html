@@ -1,44 +1,50 @@
-<button mat-raised-button color="primary" (click)="goToCreate()">
-  Create New Loan From Component
-</button>
+<div class="flex justify-center mt-4">
+  <button
+    (click)="goToCreate()"
+    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition"
+  >
+    Create New Loan
+  </button>
+</div>
 
-<section class="loans--container">
-    <h1>Loan Management</h1>
-    <table mat-table [dataSource]="loans" class="mat-elevation-z8">
-      <ng-container matColumnDef="loanAmount">
-        <th mat-header-cell *matHeaderCellDef>Loan Amount</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.amount | currency }}
-        </td>
-      </ng-container>
+<section class="loans--container bg-white p-6 rounded shadow-md">
+  <h1 class="text-2xl font-bold mb-6 text-gray-800">Loan Management</h1>
 
-      <ng-container matColumnDef="currentBalance">
-        <th mat-header-cell *matHeaderCellDef>Current Balance</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.currentBalance | currency }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="applicant">
-        <th mat-header-cell *matHeaderCellDef>Applicant</th>
-        <td mat-cell *matCellDef="let element">{{ element.applicantName }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-button color="accent" (click)="goToPay(element.loanId)">
-            Pay
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-left text-sm text-gray-800 border border-gray-200">
+      <thead class="bg-gray-100 border-b border-gray-200">
+        <tr>
+          <th class="px-4 py-3 font-semibold">Loan Amount</th>
+          <th class="px-4 py-3 font-semibold">Current Balance</th>
+          <th class="px-4 py-3 font-semibold">Applicant</th>
+          <th class="px-4 py-3 font-semibold">Status</th>
+          <th class="px-4 py-3 font-semibold">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let element of loans"
+          class="border-b hover:bg-gray-50 transition"
+        >
+          <td class="px-4 py-2">{{ element.amount | currency }}</td>
+          <td class="px-4 py-2">{{ element.currentBalance | currency }}</td>
+          <td class="px-4 py-2">{{ element.applicantName }}</td>
+          <td class="px-4 py-2">{{ element.status }}</td>
+          <td class="px-4 py-2">
+            <ng-container *ngIf="element.status?.toLowerCase() !== 'paid'; else disabledPlaceholder">
+              <button
+                (click)="goToPay(element.loanId)"
+                class="text-sm bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded"
+              >
+                Pay
+              </button>
+            </ng-container>
+            <ng-template #disabledPlaceholder>
+              <span class="text-sm text-gray-500 italic">Unable to pay loan with status Paid</span>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
     </table>
-  </section>
+  </div>
+</section>
