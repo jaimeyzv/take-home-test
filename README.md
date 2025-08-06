@@ -42,7 +42,8 @@ The Angular app will be served on a local port (e.g. http://localhost:4200).
 
 Open the browser and navigate to that address to use the UI.
 
-💡 Notes
+---
+## 💡 Notes
 Ensure that the backend API is running before accessing the frontend.
 
 If you're using different ports, update the environment configuration accordingly.
