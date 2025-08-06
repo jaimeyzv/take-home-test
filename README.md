@@ -23,6 +23,7 @@ Follow these steps to set up and run the application (Database + .NET API + Angu
 
 - In **Visual Studio**, set the project `Fundo.Applications.WebApi` as the **Startup Project**.
 - Run the application (`F5` or use the green "Run" button).
+- ⚠️ When the WebApi run, it will execute the seed method and initial data will be loaded in the database.  
 
 ---
 
