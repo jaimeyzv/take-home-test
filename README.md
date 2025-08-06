@@ -54,8 +54,6 @@ If you're using different ports, update the environment configuration accordingl
 
 ```bash
 take-home-test/
-├── .github/
-│   └── workflows/
 ├── backend/
 │   └── src/
 │       ├── Core/
