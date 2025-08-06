@@ -69,7 +69,7 @@ namespace Fundo.Applications.WebApi.Controllers
             }
         }
 
-        [HttpPost("{loanId}/pay")]
+        [HttpPost("{loanId}/payment")]
         public async Task<ActionResult<PayLoanResponse>> Pay(
             [FromRoute] int loanId,
             [FromBody] PayLoanRequest request,

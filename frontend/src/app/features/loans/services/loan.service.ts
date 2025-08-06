@@ -19,7 +19,7 @@ export class LoanService {
   }
 
   payLoan(loanId: number, paymentAmount: number): Observable<any> {
-    const url = `${this.baseUrl}${loanId}/pay`;
+    const url = `${this.baseUrl}${loanId}/payment`;
     return this.http.post(url, { paymentAmount });
   }
 }
