@@ -51,6 +51,7 @@ If you're using different ports, update the environment configuration accordingl
 ---
 
 ## 📁 Project Structure
+
 take-home-test/
 ├── .github/
 │   └── workflows/
