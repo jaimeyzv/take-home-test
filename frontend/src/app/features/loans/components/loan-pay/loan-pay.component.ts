@@ -30,6 +30,7 @@ export class LoanPayComponent implements OnInit {
   loanForm!: FormGroup;
   loanId!: number;
   payAmount!: number;
+  errorMessage: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,7 +56,10 @@ export class LoanPayComponent implements OnInit {
         .payLoan(this.loanId, this.loanForm.value.payAmount)
         .subscribe({
           next: () => this.router.navigate(['/loans']),
-          error: (err) => console.error('Error paying loan:', err),
+          error: (err) => {
+            this.errorMessage =
+              err.error || 'An error occurred while paying the loan.';
+          },
         });
     }
   }

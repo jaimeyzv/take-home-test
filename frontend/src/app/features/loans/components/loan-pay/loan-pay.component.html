@@ -26,6 +26,9 @@
         Pay Loan
       </button>
     </div>
+    <div *ngIf="errorMessage" class="text-red-600 mb-4">
+      {{ errorMessage }}
+    </div>
   </form>
    <div class="flex justify-center mt-4">
     <button

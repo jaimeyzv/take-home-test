@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class LoanCreateComponent implements OnInit {
   loanForm!: FormGroup;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -50,7 +51,10 @@ export class LoanCreateComponent implements OnInit {
     if (this.loanForm.valid) {
       this.loanService.createLoan(this.loanForm.value).subscribe({
         next: () => this.router.navigate(['/loans']),
-        error: (err) => console.error('Error creating loan:', err),
+        error: (err) => {
+          this.errorMessage =
+            err.error || 'An error occurred while creating the loan.';
+        },
       });
     }
   }
