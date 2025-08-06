@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Fundo.Applications.WebApi.Controllers
 {
-    [Route("/loans")]
+    [Route("api/loans")]
     public class LoanManagementController : Controller
     {
 

@@ -7,7 +7,7 @@ import { LoanList } from '../models/loan-list.model';
   providedIn: 'root',
 })
 export class LoanService {
-  private baseUrl = 'https://localhost:52252/loans/';
+  private baseUrl = 'https://localhost:52252/api/loans/';
   constructor(private http: HttpClient) {}
 
   getLoans(): Observable<{ loans: LoanList[] }> {
