@@ -1,6 +1,5 @@
 using Fundo.Applications.Application.UseCases.GetLoanList;
 using Fundo.Applications.Application.UseCases.PayLoan;
-using Fundo.Services.Tests.Seed;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Linq;
 using System.Net;
@@ -15,7 +14,6 @@ namespace Fundo.Services.Tests.Integration
     public class LoanManagementControllerTests : IClassFixture<WebApplicationFactory<Fundo.Applications.WebApi.Startup>>
     {
         private readonly HttpClient _client;
-        private readonly CustomWebApplicationFactory _factory;
 
         public LoanManagementControllerTests(WebApplicationFactory<Fundo.Applications.WebApi.Startup> factory)
         {
