@@ -1,4 +1,4 @@
-export interface LoanList {
+export interface LoanCreate {
   amount: number;
   applicantName: string;
 }

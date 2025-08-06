@@ -17,4 +17,9 @@ export class LoanService {
   createLoan(loan: Omit<LoanList, 'loanId'>): Observable<LoanList> {
     return this.http.post<LoanList>(this.baseUrl, loan);
   }
+
+  payLoan(loanId: number, paymentAmount: number): Observable<any> {
+    const url = `${this.baseUrl}${loanId}/pay`;
+    return this.http.post(url, { paymentAmount });
+  }
 }

@@ -19,6 +19,7 @@ export class LoanListComponent {
     'currentBalance',
     'applicant',
     'status',
+    'actions',
   ];
 
   constructor(
@@ -29,6 +30,10 @@ export class LoanListComponent {
 
   goToCreate() {
     this.router.navigate(['/loans/create']);
+  }
+
+  goToPay(loanId: number) {
+    this.router.navigate(['/loans/pay', loanId]);
   }
 
   ngOnInit(): void {
