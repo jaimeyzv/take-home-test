@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\core\application\Fundo.Applications.Application\Fundo.Applications.Application.csproj" />
     <ProjectReference Include="..\..\Core\Fundo.Applications.Application\Fundo.Applications.Application.csproj" />
     <ProjectReference Include="..\..\infrastructure\Fundo.Applications.Infrastructure\Fundo.Applications.Infrastructure.csproj" />
   </ItemGroup>
