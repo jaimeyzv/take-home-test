@@ -5,13 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundo.Applications.WebApi", "presentation\Fundo.Applications.WebApi\Fundo.Applications.WebApi.csproj", "{57F129F5-9EB7-F7EA-5ED8-6958CDF8C4C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundo.Applications.WebApi", "Presentation\Fundo.Applications.WebApi\Fundo.Applications.WebApi.csproj", "{57F129F5-9EB7-F7EA-5ED8-6958CDF8C4C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{EA806C40-7512-4421-BAE1-46A6FFA4CF3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6D4A262D-A5FA-4FC0-AFD9-51B1B6417E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundo.Applications.Infrastructure", "infrastructure\Fundo.Applications.Infrastructure\Fundo.Applications.Infrastructure.csproj", "{E7F2F9E1-39DC-4BFC-8614-7C4BDF42F6FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundo.Applications.Infrastructure", "Infrastructure\Fundo.Applications.Infrastructure\Fundo.Applications.Infrastructure.csproj", "{E7F2F9E1-39DC-4BFC-8614-7C4BDF42F6FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundo.Services.Tests", "Presentation\Fundo.Services.Tests\Fundo.Services.Tests.csproj", "{285487DE-C25D-FDB2-DBF3-A2D8F7474B75}"
 EndProject

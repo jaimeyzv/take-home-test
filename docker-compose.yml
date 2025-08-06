@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: ./backend/src
+      dockerfile: Presentation/Fundo.Applications.WebApi/Dockerfile
+    ports:
+      - "52252:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserverdata:/var/opt/mssql
+
+volumes:
+  sqlserverdata:
