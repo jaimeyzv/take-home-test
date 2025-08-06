@@ -1,83 +1,48 @@
-# **Take-Home Test: Backend-Focused Full-Stack Developer (.NET C# & Angular)**
+# 🧩 Project Setup Guide
 
-## **Objective**
-
-This take-home test evaluates your ability to develop and integrate a .NET Core (C#) backend with an Angular frontend, focusing on API design, database integration, and basic DevOps practices.
-
-## **Instructions**
-
-1.  **Fork the provided repository** before starting the implementation.
-2.  Implement the requested features in your forked repository.
-3.  Once you have completed the implementation, **send the link** to your forked repository via email for review.
-
-## **Task**
-
-You will build a simple **Loan Management System** with a **.NET Core backend (C#)** exposing RESTful APIs and a **basic Angular frontend** consuming these APIs.
+Follow these steps to set up and run the application (Database + .NET API + Angular Frontend).
 
 ---
 
-## **Requirements**
+## ✅ 1. Database – SQL Server
 
-### **1. Backend (API) - .NET Core**
+- Go to the project root and locate the script:  
+  `database-objects-creation.sql`
 
-* Create a **RESTful API** in .NET Core to handle **loan applications**.
-* Implement the following endpoints:
-    * `POST /loans` → Create a new loan.
-    * `GET /loans/{id}` → Retrieve loan details.
-    * `GET /loans` → List all loans.
-    * `POST /loans/{id}/payment` → Deduct from `currentBalance`.
-* Loan example (feel free to improve it):
+- The easiest way to run it is via **SQL Server Management Studio (SSMS)**:
+  1. Open SSMS.
+  2. Open the `.sql` file.
+  3. Execute the script.
 
-    ```json
-    {
-        "amount": 1500.00, // Amount requested
-        "currentBalance": 500.00, // Remaining balance
-        "applicantName": "Maria Silva", // User name
-        "status": "active" // Status can be active or paid
-    }
-    ```
-
-* Use **Entity Framework Core** with **SQL Server**.
-* Create seed data to populate the loans (the frontend will consume this).
-* Write **unit/integration tests for the API** (xUnit or NUnit).
-* **Dockerize** the backend and create a **Docker Compose** file.
-* Create a README with setup instructions.
-
-### **2. Frontend - Angular (Simplified UI)**  
-
-Develop a **lightweight Angular app** to interact with the backend
-
-#### **Features:**  
-- A **table** to display a list of existing loans.  
-
-#### **Mockup:**  
-[View Mockup](https://kzmgtjqt0vx63yji8h9l.lite.vusercontent.net/)  
-(*The design doesn’t need to be an exact replica of the mockup—it serves as a reference. Aim to keep it as close as possible.*)  
+- ⚠️ This script will create the database with the name expected by the Web API.  
+  **Do not modify anything** in the script.
 
 ---
 
-## **Bonus (Optional, Not Required)**
+## ✅ 2. Backend – .NET Core Web API
 
-* **Improve error handling and logging** with structured logs.
-* Implement **authentication**.
-* Create a **GitHub Actions** pipeline for building and testing the backend.
-
----
-
-## **Evaluation Criteria**
-
-✔ **Code quality** (clean architecture, modularization, best practices).
-
-✔ **Functionality** (the API and frontend should work as expected).
-
-✔ **Security considerations** (authentication, validation, secure API handling).
-
-✔ **Testing coverage** (unit tests for critical backend functions).
-
-✔ **Basic DevOps implementation** (Docker for backend).
+- In **Visual Studio**, set the project `Fundo.Applications.WebApi` as the **Startup Project**.
+- Run the application (`F5` or use the green "Run" button).
 
 ---
 
-## **Additional Information**
+## ✅ 3. Frontend – Angular
 
-Candidates are encouraged to include a `README.md` file in their repository detailing their implementation approach, any challenges they faced, features they couldn't complete, and any improvements they would make given more time. Ideally, the implementation should be completed within **two days** of starting the test.
+- Open a terminal in the frontend project directory and install dependencies:
+
+  ```bash
+  npm install
+Start the development server:
+
+bash
+Copiar
+Editar
+npm run start
+The Angular app will be served on a local port (e.g. http://localhost:4200).
+
+Open the browser and navigate to that address to use the UI.
+
+💡 Notes
+Ensure that the backend API is running before accessing the frontend.
+
+If you're using different ports, update the environment configuration accordingly.
