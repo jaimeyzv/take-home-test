@@ -148,3 +148,4 @@ Given more time, I would:
 - Resolve Tailwind + Angular integration for better styling consistency.
 - Add API documentation via Swagger/OpenAPI.
 - Expand test coverage for edge cases and error handling.
+- Implementation of design patterns such as the Strategy Pattern or Chain of Responsibility Pattern in the payment process to adhere to SOLID principles, as the process involves multiple scenarios based on validation and business rules.
