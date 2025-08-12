@@ -19,6 +19,7 @@
           <th class="px-4 py-3 font-semibold">Applicant</th>
           <th class="px-4 py-3 font-semibold">Status</th>
           <th class="px-4 py-3 font-semibold">Actions</th>
+          <th class="px-4 py-3 font-semibold">Navigation</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +43,16 @@
             <ng-template #disabledPlaceholder>
               <span class="text-sm text-gray-500 italic">Unable to pay loan with status Paid</span>
             </ng-template>
+          </td>
+          <td class="px-4 py-2">
+            <ng-container>
+              <button
+                (click)="goToHistory(element.loanId)"
+                class="text-sm bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded"
+              >
+                See History
+              </button>
+            </ng-container>
           </td>
         </tr>
       </tbody>

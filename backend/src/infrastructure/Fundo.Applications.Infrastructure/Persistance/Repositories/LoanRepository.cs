@@ -58,6 +58,14 @@ namespace Fundo.Applications.Infrastructure.Persistance.Repositories
             _context.Entry(entity).State = EntityState.Detached;
             var newEntity = _mapper.Map<LoanEntity>(domain);
             _context.Loans.Update(newEntity);
+
+            var history = new LoanHistoryEntity 
+            {
+                LoanId = domain.LoanId,
+                Amount = domain.PayAmount,
+                PayDate =  DateTime.Today
+            };
+            _context.LoanHistory.Add(history);
         }
     }
 }

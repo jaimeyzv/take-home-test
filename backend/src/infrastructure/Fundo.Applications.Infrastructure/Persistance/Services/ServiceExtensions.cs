@@ -20,7 +20,8 @@ namespace Fundo.Applications.Infrastructure.Persistance.Services
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ILoanRepository, LoanRepository>();            
+            services.AddScoped<ILoanRepository, LoanRepository>();
+            services.AddScoped<ILoanHistoryRepository, LoanHistoryRepository>();            
         }
 
         public static async Task SeedAsync(AppDbContext context)

@@ -7,6 +7,7 @@
         public decimal CurrentBalance { get; set; }
         public string ApplicantName { get; set; }
         public string Status { get; set; }
+        public decimal PayAmount { get; set; }
 
         public void MakePayment(decimal paymentAmount)
         {
@@ -20,7 +21,7 @@
                 throw new InvalidOperationException("Payment exceeds current balance");
 
             CurrentBalance -= paymentAmount;
-
+            PayAmount = paymentAmount;
             if (CurrentBalance == 0)
                 Status = "Paid";
         }

@@ -36,6 +36,10 @@ export class LoanListComponent {
     this.router.navigate(['/loans/pay', loanId]);
   }
 
+  goToHistory(loanId: number) {
+    this.router.navigate(['/loans/history', loanId]);
+  }
+
   ngOnInit(): void {
     this.loanService.getLoans().subscribe({
       next: (data) => (this.loans = data.loans),

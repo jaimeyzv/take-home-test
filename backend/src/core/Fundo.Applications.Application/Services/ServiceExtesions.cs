@@ -1,4 +1,5 @@
 ﻿using Fundo.Applications.Application.UseCases.CreateLoan;
+using Fundo.Applications.Application.UseCases.GetAllHistory;
 using Fundo.Applications.Application.UseCases.GetLoanById;
 using Fundo.Applications.Application.UseCases.GetLoanList;
 using Fundo.Applications.Application.UseCases.PayLoan;
@@ -17,7 +18,8 @@ namespace Fundo.Applications.Application.Services
                 typeof(CreateLoanMapper).Assembly,
                 typeof(GetLoanByIdMapper).Assembly,
                 typeof(PayLoanMapper).Assembly,
-                typeof(GetLoanListMapper).Assembly
+                typeof(GetLoanListMapper).Assembly,
+                typeof(GetLoanHistoryMapper).Assembly
                 );
 
             services.AddMediatR(cfg =>
